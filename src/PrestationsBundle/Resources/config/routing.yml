@@ -1,0 +1,3 @@
+prestations_homepage:
+    path:     /
+    defaults: { _controller: PrestationsBundle:Default:index }

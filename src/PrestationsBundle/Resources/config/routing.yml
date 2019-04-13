@@ -1,3 +1,8 @@
 prestations_homepage:
     path:     /
     defaults: { _controller: PrestationsBundle:Default:index }
+
+
+prestations:
+    path:     /prestations/
+    defaults: { _controller: PrestationsBundle:Default:prestations }

@@ -1,0 +1,24 @@
+prestations_index:
+    path:     /
+    defaults: { _controller: "PrestationsBundle:Prestations:index" }
+    methods:  GET
+
+prestations_show:
+    path:     /{idPrestation}/show
+    defaults: { _controller: "PrestationsBundle:Prestations:show" }
+    methods:  GET
+
+prestations_new:
+    path:     /new
+    defaults: { _controller: "PrestationsBundle:Prestations:new" }
+    methods:  [GET, POST]
+
+prestations_edit:
+    path:     /{idPrestation}/edit
+    defaults: { _controller: "PrestationsBundle:Prestations:edit" }
+    methods:  [GET, POST]
+
+prestations_delete:
+    path:     /{idPrestation}/delete
+    defaults: { _controller: "PrestationsBundle:Prestations:delete" }
+    methods:  DELETE

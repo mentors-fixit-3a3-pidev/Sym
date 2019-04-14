@@ -15,7 +15,7 @@ class Location
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_location", type="integer")
+     * @ORM\Column(name="id_location", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -36,9 +36,9 @@ class Location
     private $dateFin;
 
     /**
-     * @var \AppBundle\Entity\FosUser
+     * @var \FosUser
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\FosUser")
+     * @ORM\ManyToOne(targetEntity="FosUser")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      * })
@@ -46,9 +46,9 @@ class Location
     private $idUser;
 
     /**
-     * @var \AppBundle\Entity\Materiels
+     * @var \Materiels
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Materiels")
+     * @ORM\ManyToOne(targetEntity="Materiels")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_materiel", referencedColumnName="id_materiel")
      * })

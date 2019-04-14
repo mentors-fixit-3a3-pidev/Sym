@@ -15,7 +15,7 @@ class Materiels
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_materiel", type="integer")
+     * @ORM\Column(name="id_materiel", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -36,9 +36,9 @@ class Materiels
     private $prixLocation;
 
     /**
-     * @var \AppBundle\Entity\FosUser
+     * @var \FosUser
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\FosUser")
+     * @ORM\ManyToOne(targetEntity="FosUser")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      * })
@@ -46,9 +46,9 @@ class Materiels
     private $idUser;
 
     /**
-     * @var \AppBundle\Entity\Categories
+     * @var \Categories
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Categories")
+     * @ORM\ManyToOne(targetEntity="Categories")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_categorie", referencedColumnName="id_catégorie")
      * })

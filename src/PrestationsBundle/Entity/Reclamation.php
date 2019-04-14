@@ -15,7 +15,7 @@ class Reclamation
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_reclamation", type="integer")
+     * @ORM\Column(name="id_reclamation", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -57,9 +57,9 @@ class Reclamation
     private $dateReclamation;
 
     /**
-     * @var \AppBundle\Entity\FosUser
+     * @var \FosUser
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\FosUser")
+     * @ORM\ManyToOne(targetEntity="FosUser")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_utilisateur", referencedColumnName="id")
      * })
@@ -67,9 +67,9 @@ class Reclamation
     private $idUtilisateur;
 
     /**
-     * @var \AppBundle\Entity\Prestations
+     * @var \Prestations
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Prestations")
+     * @ORM\ManyToOne(targetEntity="Prestations")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_prestation", referencedColumnName="id_prestation")
      * })

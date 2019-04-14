@@ -15,7 +15,7 @@ class Reponses
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_reponse", type="integer")
+     * @ORM\Column(name="id_reponse", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -36,9 +36,9 @@ class Reponses
     private $dateReponse;
 
     /**
-     * @var \AppBundle\Entity\FosUser
+     * @var \FosUser
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\FosUser")
+     * @ORM\ManyToOne(targetEntity="FosUser")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_client", referencedColumnName="id")
      * })
@@ -46,9 +46,9 @@ class Reponses
     private $idClient;
 
     /**
-     * @var \AppBundle\Entity\Questions
+     * @var \Questions
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Questions")
+     * @ORM\ManyToOne(targetEntity="Questions")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_question", referencedColumnName="id_question")
      * })

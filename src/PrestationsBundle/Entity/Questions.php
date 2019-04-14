@@ -15,7 +15,7 @@ class Questions
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_question", type="integer")
+     * @ORM\Column(name="id_question", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -50,9 +50,9 @@ class Questions
     private $dateQuestion;
 
     /**
-     * @var \AppBundle\Entity\FosUser
+     * @var \FosUser
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\FosUser")
+     * @ORM\ManyToOne(targetEntity="FosUser")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_client", referencedColumnName="id")
      * })

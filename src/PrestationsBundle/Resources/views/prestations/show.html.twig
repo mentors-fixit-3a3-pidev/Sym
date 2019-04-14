@@ -1,0 +1,48 @@
+{% extends 'page.html.twig' %}
+
+{% block body %}
+    <h1>Prestation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idprestation</th>
+                <td>{{ prestation.idPrestation }}</td>
+            </tr>
+            <tr>
+                <th>Dateprestation</th>
+                <td>{% if prestation.datePrestation %}{{ prestation.datePrestation|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Etatprestation</th>
+                <td>{{ prestation.etatPrestation }}</td>
+            </tr>
+            <tr>
+                <th>Nomprestation</th>
+                <td>{{ prestation.nomPrestation }}</td>
+            </tr>
+            <tr>
+                <th>Descriptionprestation</th>
+                <td>{{ prestation.descriptionPrestation }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ prestation.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('prestations_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('prestations_edit', { 'idPrestation': prestation.idPrestation }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

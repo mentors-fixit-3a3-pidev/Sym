@@ -15,7 +15,7 @@ class Formation
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -43,9 +43,9 @@ class Formation
     private $langueFormation;
 
     /**
-     * @var \AppBundle\Entity\Events
+     * @var \Events
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Events")
+     * @ORM\ManyToOne(targetEntity="Events")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_event", referencedColumnName="id")
      * })

@@ -24,14 +24,16 @@ class PropositionsPrix
      *
      * @ORM\Column(name="Ã©tat", type="integer", nullable=false)
      */
-    private $ï¿½tat;
+    private $ã©tat;
 
     /**
-     * @var \AppBundle\Entity\Prestations
+     * @var \Prestations
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Prestations")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Prestations")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_prestation", referencedColumnName="id_prestation", unique=true)
+     *   @ORM\JoinColumn(name="id_prestation", referencedColumnName="id_prestation")
      * })
      */
     private $idPrestation;

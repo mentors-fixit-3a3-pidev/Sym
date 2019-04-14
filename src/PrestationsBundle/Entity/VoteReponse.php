@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace PrestationsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -20,24 +20,26 @@ class VoteReponse
     private $typeVote;
 
     /**
-     * @var \AppBundle\Entity\Reponses
+     * @var \FosUser
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Reponses")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_reponse", referencedColumnName="id_reponse", unique=true)
-     * })
-     */
-    private $idReponse;
-
-    /**
-     * @var \AppBundle\Entity\FosUser
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\FosUser")
+     * @ORM\ManyToOne(targetEntity="FosUser")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_client", referencedColumnName="id")
      * })
      */
     private $idClient;
+
+    /**
+     * @var \Reponses
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Reponses")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_reponse", referencedColumnName="id_reponse")
+     * })
+     */
+    private $idReponse;
 
 
 }

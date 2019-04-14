@@ -15,25 +15,25 @@ class Categories
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_catégorie", type="integer")
+     * @ORM\Column(name="id_categorie", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idCat�gorie;
+    private $idCategorie;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_catégorie", type="string", length=50, nullable=false)
+     * @ORM\Column(name="nom_categorie", type="string", length=50, nullable=false)
      */
-    private $nomCat�gorie;
+    private $nomCategorie;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description_catégorie", type="string", length=150, nullable=false)
+     * @ORM\Column(name="description_categorie", type="string", length=150, nullable=false)
      */
-    private $descriptionCat�gorie;
+    private $descriptionCategorie;
 
 
 }

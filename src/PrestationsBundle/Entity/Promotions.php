@@ -15,7 +15,7 @@ class Promotions
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_promotion", type="integer")
+     * @ORM\Column(name="id_promotion", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -43,9 +43,9 @@ class Promotions
     private $pourcentagePromotion;
 
     /**
-     * @var \AppBundle\Entity\Materiels
+     * @var \Materiels
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Materiels")
+     * @ORM\ManyToOne(targetEntity="Materiels")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_materiel", referencedColumnName="id_materiel")
      * })

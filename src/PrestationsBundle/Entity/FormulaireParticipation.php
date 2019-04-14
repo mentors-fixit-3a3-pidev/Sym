@@ -15,7 +15,7 @@ class FormulaireParticipation
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -64,9 +64,9 @@ class FormulaireParticipation
     private $dateInscription;
 
     /**
-     * @var \AppBundle\Entity\FosUser
+     * @var \FosUser
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\FosUser")
+     * @ORM\ManyToOne(targetEntity="FosUser")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      * })
@@ -74,9 +74,9 @@ class FormulaireParticipation
     private $idUser;
 
     /**
-     * @var \AppBundle\Entity\Formation
+     * @var \Formation
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Formation")
+     * @ORM\ManyToOne(targetEntity="Formation")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_formation", referencedColumnName="id")
      * })

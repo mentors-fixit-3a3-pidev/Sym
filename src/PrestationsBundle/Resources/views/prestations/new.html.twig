@@ -1,0 +1,16 @@
+{% extends 'page.html.twig' %}
+
+{% block body %}
+    <h1>Demande de prestation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Passer ma demande" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('prestations_index') }}">Afficher toutes mes prestations</a>
+        </li>
+    </ul>
+{% endblock %}

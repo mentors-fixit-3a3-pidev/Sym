@@ -5,7 +5,8 @@ namespace PrestationsBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 class PrestationsType extends AbstractType
 {
     /**
@@ -13,7 +14,8 @@ class PrestationsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('datePrestation')->add('etatPrestation')->add('nomPrestation')->add('descriptionPrestation')->add('prix')->add('idClient')->add('idPrestataire')->add('idSousCategorie');
+        $builder->add('nomPrestation')->add('idSousCategorie')->add('descriptionPrestation')->add('datePrestation' , DateType::class, ['widget' => 'single_text',
+        ])->add('etatPrestation',ChoiceType::class, ['choices'  => ['Non traitée' => 0,],])->add('prix')->add('idClient')->add('idPrestataire');
     }/**
      * {@inheritdoc}
      */

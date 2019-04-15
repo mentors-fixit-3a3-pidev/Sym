@@ -15,7 +15,7 @@ Primary use:	Fox Admin - Responsive Admin Template
 3. Sidebar
 4. Form-element and progress bar
 5. Box
-6. User card
+6. FosUser card
 7. tab
 8. google map
 9. wizard
@@ -2452,7 +2452,7 @@ input[type="color"] {
     border-radius: 0 0 3px 3px;
 }
 
-/*User card page*/
+/*FosUser card page*/
 
 .fx-element-overlay .white-box {
     padding: 0px;

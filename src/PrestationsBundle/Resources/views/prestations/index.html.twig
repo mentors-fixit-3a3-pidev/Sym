@@ -1,47 +1,38 @@
 {% extends 'page.html.twig' %}
-
 {% block body %}
-    <h1>Prestations list</h1>
+    <h1>Historique des demandes</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Idprestation</th>
-                <th>Dateprestation</th>
-                <th>Etatprestation</th>
-                <th>Nomprestation</th>
-                <th>Descriptionprestation</th>
-                <th>Prix</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for prestation in prestations %}
-            <tr>
-                <td><a href="{{ path('prestations_show', { 'idPrestation': prestation.idPrestation }) }}">{{ prestation.idPrestation }}</a></td>
-                <td>{% if prestation.datePrestation %}{{ prestation.datePrestation|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ prestation.etatPrestation }}</td>
-                <td>{{ prestation.nomPrestation }}</td>
-                <td>{{ prestation.descriptionPrestation }}</td>
-                <td>{{ prestation.prix }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('prestations_show', { 'idPrestation': prestation.idPrestation }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('prestations_edit', { 'idPrestation': prestation.idPrestation }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class=row>
+    {% for prestation in prestations %}
+    <div class=col-md-3>
+        <div class=item-price>
+            <div class=head>
+                <div class=name-wrap>
 
-    <ul>
-        <li>
-            <a href="{{ path('prestations_new') }}">Create a new prestation</a>
+                    <h2>{{ prestation.nomPrestation }}	</h2>
+                </div>
+                <div class=price-wrap>
+                    <p>{{ prestation.prix }} $</p><span class=per-mn></span>
+                </div>
+            </div>
+            <div class=body>
+                <ul>
+                    <li>{{ prestation.descriptionPrestation }}</li>
+                    <li>{{ prestation.idSousCategorie }}</li>
+                    <li>{% if prestation.datePrestation %}{{ prestation.datePrestation|date('Y-m-d') }}{% endif %}</li>
+                    <li>{{ prestation.etatPrestation }}</li>
+                    <li><a href="{{ path('prestations_show', { 'idPrestation': prestation.idPrestation }) }}" class=btn>Détails</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+
+
+            <a style="color: black" href="{{ path('prestations_new') }}">Vous avez un problème? Passez votre demande</a>
         </li>
     </ul>
 {% endblock %}

@@ -50,7 +50,7 @@ class Materiels
      *
      * @ORM\ManyToOne(targetEntity="Categories")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_categorie", referencedColumnName="id_catégorie")
+     *   @ORM\JoinColumn(name="id_categorie", referencedColumnName="id_categorie")
      * })
      */
     private $idCategorie;

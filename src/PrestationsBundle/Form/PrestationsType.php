@@ -15,7 +15,7 @@ class PrestationsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nomPrestation')->add('idSousCategorie')->add('descriptionPrestation')->add('datePrestation' , DateType::class, ['widget' => 'single_text',
-        ])->add('etatPrestation',ChoiceType::class, ['choices'  => ['Non traitée' => 0,],])->add('prix')->add('idClient')->add('idPrestataire');
+        ])->add('etatPrestation',ChoiceType::class, ['choices'  => ['Non traitée' => 0,],])->add('prix')->add('idPrestataire');
     }/**
      * {@inheritdoc}
      */

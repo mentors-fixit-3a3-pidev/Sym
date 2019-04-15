@@ -1,7 +1,7 @@
 <?php
 
 namespace PrestationsBundle\Controller;
-
+use PrestationsBundle\Entity\FosUser;
 use PrestationsBundle\Entity\Prestations;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,8 +19,8 @@ class PrestationsController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $prestations = $em->getRepository('PrestationsBundle:Prestations')->findAll();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser() ;
+        $prestations = $em->getRepository('PrestationsBundle:Prestations')->findBy(array('idClient' =>$user->getId()));
 
         return $this->render('@Prestations/prestations/index.html.twig', array(
             'prestations' => $prestations,
@@ -38,7 +38,9 @@ class PrestationsController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $prestations->setIdClient($this->container->get('security.token_storage')->getToken()->getUser());
             $em = $this->getDoctrine()->getManager();
+
             $em->persist($prestations);
             $em->flush();
 

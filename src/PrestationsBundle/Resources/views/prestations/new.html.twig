@@ -1,6 +1,7 @@
 {% extends 'page.html.twig' %}
 
 {% block body %}
+
     <a style="color: black" href="{{ path('prestations_index') }}"> Retour à mes prestations</a>
 
     <center>
@@ -27,7 +28,7 @@
             </div>
             <div >
                 <label>Proposez un prix à votre prestataire</label> <br>
-                {{ form_widget(form.prix, { 'attr':{'style':'background-color:#fff3cd;width: 40%; color: black'}    }) }}
+                {{ form_widget(form.prix, { 'attr':{'style':'background-color:#fff3cd;width: 40%; color: black','min':'20'}    }) }}
             </div>
             <div >
                 <label>Etat prestation</label>
@@ -36,10 +37,30 @@
 <div>
     <label>Date prestation</label>
     <br>
-    {{ form_widget(form.datePrestation, { 'attr':{'style':'background-color:#fff3cd;width: 40%'}    }) }}
+    {{ form_widget(form.datePrestation, {'id':'date_input', 'attr':{'style':'background-color:#fff3cd;width: 40%'}    }) }}
+    <div class="alert alert-danger" style="margin-top: 10px; display: none">
+        <strong>Erreur!</strong> La date saisie est invalide.
+    </div>
 </div>
-    <input type="submit" value="Passer ma demande" class="btn btn-blue btn-form" style="background-color: #fff3cd; color: black"/>
-
+    <input id="submit_button" type="submit" value="Passer ma demande" class="btn btn-blue btn-form" style="background-color: #fff3cd; color: black"/>
+<script>
+    $(document).ready(function () {
+        var dateValide = true;
+        var d = new Date($('#date_input').val());
+        var now = new Date();
+        $('#submit_button').click(function () {
+            console.log("biiiij");
+            if (Date.parse(now)> Date.parse(d)){
+                $('#date_input').next('.alert').fadeIn();
+                dateValide = false;
+            }
+            else {$('#date_input').next('.alert').fadeOut();
+                dateValide = false;}
+            return dateValide;
+        })
+    })
+    
+</script>
 
 
 

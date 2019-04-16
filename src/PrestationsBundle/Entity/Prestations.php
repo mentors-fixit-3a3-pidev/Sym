@@ -7,7 +7,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Prestations
- *
  * @ORM\Table(name="prestations", indexes={@ORM\Index(name="id_client", columns={"id_client"}), @ORM\Index(name="id_prestataire", columns={"id_prestataire"}), @ORM\Index(name="id_sous_categorie", columns={"id_sous_categorie"})})
  * @ORM\Entity
  */
@@ -15,7 +14,7 @@ class Prestations
 {
     /**
      * @var integer
-     * @Assert\NotBlank
+     *
      * @ORM\Column(name="id_prestation", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -199,13 +198,14 @@ class Prestations
     /**
      * @var integer
      *@Assert\NotBlank
+     * @Assert\GreaterThan(20)
      * @ORM\Column(name="prix", type="integer", nullable=false)
      */
     private $prix;
 
     /**
      * @var \FosUser
-     *@Assert\NotBlank
+     *
      * @ORM\ManyToOne(targetEntity="FosUser")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_client", referencedColumnName="id")

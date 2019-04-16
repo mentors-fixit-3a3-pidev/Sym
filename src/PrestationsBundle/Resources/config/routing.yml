@@ -6,6 +6,12 @@ prestations_prestations:
 prestations_homepage:
     path:     /
     defaults: { _controller: PrestationsBundle:Default:index }
+
 prestations_admin:
     path:     /admin
     defaults: { _controller: PrestationsBundle:Default:admin }
+
+calendrier:
+    path:     /gestion
+    defaults: { _controller: PrestationsBundle:Default:goToCalendar }
+

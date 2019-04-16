@@ -8,15 +8,6 @@
     <h3> <i class="fa fa-css3"></i>   Etat  : {% if prestation.etatPrestation == 0 %}  non traitée  {% endif %} {% if prestation.etatPrestation == 1 %}   traitée  {% endif %} </h3>
     <h3> <i class="fa fa-css3"></i>   Prix  :  {{ prestation.Prix }} $</h3>
 
-
-
-
-
-
-
-
-
-
             {{ form_start(delete_form) }}
 
         {% if prestation.etatPrestation == 0 %}

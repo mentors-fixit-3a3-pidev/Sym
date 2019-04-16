@@ -105,10 +105,10 @@ Admin
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-block btn-primary">Accèder au site</a>
+                                    <a href="{{ path('prestations_homepage')}}" class="btn btn-block btn-primary">Accèder au site</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-block btn-danger">Sign out</a>
+                                    <a href="{{ path('fos_user_security_login') }}" class="btn btn-block btn-danger">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -181,8 +181,9 @@ Admin
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/widgets/weather.html"><i class="fa fa-circle-o"></i> Gestion</a></li>
-                        <li><a href="pages/widgets/widgets.html"><i class="fa fa-circle-o"></i> Calendrier </a></li>
+                        <li><a href="{{ path('calendrier') }}"><i class="fa fa-circle-o"></i> Gestion </a></li>
+
+                        <li><a href="pages/widgets/weather.html"><i class="fa fa-circle-o"></i> Statistiques</a></li>
                     </ul>
                 </li>
                 <li class="treeview">

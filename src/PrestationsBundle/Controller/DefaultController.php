@@ -14,4 +14,7 @@ class DefaultController extends Controller
     {
         return $this->render('@Prestations/Default/admin.html.twig');
     }
+    public function goToCalendarAction(){
+        return $this->render('@Prestations/prestations/Calendrier.html.twig');
+    }
 }

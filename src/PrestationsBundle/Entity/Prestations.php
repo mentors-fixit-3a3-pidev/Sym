@@ -3,6 +3,7 @@
 namespace PrestationsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Prestations
@@ -14,7 +15,7 @@ class Prestations
 {
     /**
      * @var integer
-     *
+     * @Assert\NotBlank
      * @ORM\Column(name="id_prestation", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -23,6 +24,7 @@ class Prestations
 
     /**
      * @var \DateTime
+     * @Assert\NotBlank
      *
      * @ORM\Column(name="date_prestation", type="date", nullable=false)
      */
@@ -30,14 +32,14 @@ class Prestations
 
     /**
      * @var integer
-     *
+     * @Assert\NotBlank
      * @ORM\Column(name="etat_prestation", type="integer", nullable=false)
      */
     private $etatPrestation;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank
      * @ORM\Column(name="nom_prestation", type="string", length=50, nullable=false)
      */
     private $nomPrestation;
@@ -188,6 +190,7 @@ class Prestations
 
     /**
      * @var string
+     * @Assert\NotBlank
      *
      * @ORM\Column(name="description_prestation", type="string", length=150, nullable=false)
      */
@@ -195,14 +198,14 @@ class Prestations
 
     /**
      * @var integer
-     *
+     *@Assert\NotBlank
      * @ORM\Column(name="prix", type="integer", nullable=false)
      */
     private $prix;
 
     /**
      * @var \FosUser
-     *
+     *@Assert\NotBlank
      * @ORM\ManyToOne(targetEntity="FosUser")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_client", referencedColumnName="id")
@@ -212,7 +215,7 @@ class Prestations
 
     /**
      * @var \FosUser
-     *
+     *@Assert\NotBlank
      * @ORM\ManyToOne(targetEntity="FosUser")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_prestataire", referencedColumnName="id")
@@ -222,7 +225,7 @@ class Prestations
 
     /**
      * @var \SousCategories
-     *
+     *@Assert\NotBlank
      * @ORM\ManyToOne(targetEntity="SousCategories")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_sous_categorie", referencedColumnName="id_sous_categorie")

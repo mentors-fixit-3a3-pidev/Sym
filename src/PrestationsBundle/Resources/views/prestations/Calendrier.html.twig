@@ -1,5 +1,6 @@
 {% extends 'Backoffice.html.twig' %}
 {% block body %}
+
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Liste des prestations</h3>
@@ -7,36 +8,58 @@
         <!-- /.box-header -->
         <div class="box-body">
             <div class="table-responsive">
-                <table id="example" class="table table-bordered table-hover display nowrap margin-top-10">
-                    <div id="example_wrapper" class="dataTables_wrapper"><div class="dt-buttons"><a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="example" style="background:indianred" href="#"><span>Excel</span></a><a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="example" style="background:indianred" href="#"><span>PDF</span></a><a class="dt-button buttons-print" tabindex="0" aria-controls="example" style="background:indianred" href="#"><span>Print</span></a></div><div id="example_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example"></label></div><table id="example" class="table table-bordered table-hover display nowrap margin-top-10 dataTable" role="grid" aria-describedby="example_info">
+                <table id="e" class="table table-bordered table-hover display nowrap margin-top-10">
+                    <div id="example_wrapper" class="dataTables_wrapper">
+                        <div class="dt-buttons"><a class="dt-button buttons-excel buttons-html5" tabindex="0"
+                                                   aria-controls="example" style="background:indianred" href="#"><span>Excel</span></a><a
+                                    class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="example"
+                                    style="background:indianred" href="#"><span>PDF</span></a><a
+                                    class="dt-button buttons-print" tabindex="0" aria-controls="example"
+                                    style="background:indianred" href="#"><span>Print</span></a></div>
+                        <div class="dataTables_filter"><label>Search:<input id="inlineFormInputGroup" type="search"
+                                                                            class="" placeholder=""
+                                                                            aria-controls="example"
+                                                                            onkeyup="myFunction()"></label></div>
 
-                        <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
-                    </tr>
-                    </tbody>
-                </table>
 
+                        <table id="table"
+                               class="table table-bordered table-hover display nowrap margin-top-10 dataTable"
+                               role="grid" aria-describedby="example_info">
+
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prestataire</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Etat</th>
+                                <th>Prix</th>
+                                <th>valider</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for prestation in prestations %}
+
+                                <tr>
+                                    <td>{{ prestation.nomPrestation }}</td>
+                                    <td>{{ prestation.idPrestataire }}</td>
+                                    <td>{% if prestation.datePrestation %}{{ prestation.datePrestation|date('Y-m-d') }}{% endif %}</td>
+                                    <td>{{ prestation.descriptionPrestation }}</td>
+                                    <td>{% if prestation.etatPrestation == 0 %}  non traitée  {% endif %} {% if prestation.etatPrestation == 1 %}   traitée  {% endif %}</td>
+                                    <td>{{ prestation.prix }} $</td>
+                                    <td align="center"><a
+                                                href="{{ path('changer_etat',{'id':prestation.idPrestation}) }}"><input
+                                                    type="submit" value="" style="background:indianred"></a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
             </div>
+            <!-- /.box-body -->
         </div>
-        <!-- /.box-body -->
-    </div>
-    <!-- /.box -->
+        <!-- /.box -->
     </div>
     <!-- /.col -->
     </div>
@@ -46,5 +69,28 @@
     </div>
     <!-- /.content-wrapper -->
 
+    <script>
+        function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("inlineFormInputGroup");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("table");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 
 {% endblock %}

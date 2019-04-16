@@ -13,5 +13,10 @@ prestations_admin:
 
 calendrier:
     path:     /gestion
-    defaults: { _controller: PrestationsBundle:Default:goToCalendar }
+    defaults: { _controller: PrestationsBundle:Prestations:index2 }
+
+changer_etat:
+    path:     /gestion/{id}
+    defaults: { _controller: PrestationsBundle:Prestations:accept }
+
 

@@ -26,7 +26,24 @@ class PrestationsController extends Controller
             'prestations' => $prestations,
         ));
     }
+    public function index2Action()
+    {
+        $em = $this->getDoctrine()->getManager();
+        //$user = $this->container->get('security.token_storage')->getToken()->getUser() ;
+        $prestations = $em->getRepository('PrestationsBundle:Prestations')->FindAll();
 
+        return $this->render('@Prestations/prestations/Calendrier.html.twig', array(
+            'prestations' => $prestations,
+        ));
+    }
+    public function acceptAction($id,Request $request)
+{   $prestations=new Prestations();
+    $em = $this->getDoctrine()->getManager();
+    $prestations = $em->getRepository('PrestationsBundle:Prestations')->Find($id);
+    $prestations->setEtatPrestation(1);
+    $em->flush();
+    return $this->redirectToRoute("calendrier");
+}
     /**
      * Creates a new prestation entity.
      *

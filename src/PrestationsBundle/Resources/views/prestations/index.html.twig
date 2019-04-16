@@ -1,6 +1,6 @@
 {% extends 'page.html.twig' %}
 {% block body %}
-    <h1>Historique des demandes</h1>
+    <h1>Historique des demandes et des prestations</h1>
 
 <div class=row>
     {% for prestation in prestations %}
@@ -20,7 +20,7 @@
                     <li>{{ prestation.descriptionPrestation }}</li>
                     <li>{{ prestation.idSousCategorie }}</li>
                     <li>{% if prestation.datePrestation %}{{ prestation.datePrestation|date('Y-m-d') }}{% endif %}</li>
-                    <li>{{ prestation.etatPrestation }}</li>
+                    <li>{% if prestation.etatPrestation == 0 %}  non traitée  {% endif %} {% if prestation.etatPrestation == 1 %}   traitée  {% endif %}</li>
                     <li><a href="{{ path('prestations_show', { 'idPrestation': prestation.idPrestation }) }}" class=btn>Détails</a></li>
                 </ul>
             </div>
@@ -33,6 +33,6 @@
 
 
             <a style="color: black" href="{{ path('prestations_new') }}">Vous avez un problème? Passez votre demande</a>
-        </li>
-    </ul>
+
+
 {% endblock %}

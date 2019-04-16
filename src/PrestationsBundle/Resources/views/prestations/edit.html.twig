@@ -2,21 +2,42 @@
 
 
 {% block body %}
-    <h1>Prestation edit</h1>
+    <a style="color: black" href="{{ path('prestations_index') }}"> Retour à mes prestations</a>
+
+    <h1>Modification de votre prestation</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+    <div >
+        <label>Nom prestation</label>
+        {{ form_widget(edit_form.nomPrestation, { 'attr':{'style':'background-color:#fff3cd;width: 40%; color: black'}    }) }}
+    </div>
+    <div >
+        <label>Votre sous catégorie</label>
+        {{ form_widget(edit_form.idSousCategorie, { 'attr':{'style':'background-color:#fff3cd;width: 40%; color: black'}    }) }}
+    </div>
+    <div >
+        <label>Votre prestataire</label>
+        {{ form_widget(edit_form.idPrestataire, { 'attr':{'style':'background-color:#fff3cd;width: 40%; color: black'}    }) }}
+    </div>
+    <div >
+        <label>Description prestation</label>
+        {{ form_widget(edit_form.descriptionPrestation, { 'attr':{'style':'background-color:#fff3cd;width: 40%; color: black'}    }) }}
+    </div>
+    <div >
+        <label>Proposez un prix à votre prestataire</label> <br>
+        {{ form_widget(edit_form.prix, { 'attr':{'style':'background-color:#fff3cd;width: 40%; color: black'}    }) }}
+    </div>
+    <div >
+        <label>Etat prestation</label>
+        {{ form_widget(edit_form.etatPrestation, { 'attr':{'style':'background-color:#fff3cd;width: 40%; color: black'}    }) }}
+    </div>
+    <div>
+        <label>Date prestation</label>
+        <br>
+        {{ form_widget(edit_form.datePrestation, { 'attr':{'style':'background-color:#fff3cd;width: 40%'}    }) }}
+    </div>
+        <input type="submit" value="Modifier" class="btn btn-blue btn-form" style="background-color: #fff3cd; color: black" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('prestations_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
 {% endblock %}

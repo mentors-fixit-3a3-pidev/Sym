@@ -1,8 +1,8 @@
 {% extends 'page.html.twig' %}
 
 {% block body %}
-    <a style="color: Black" href="{{ path('prestations_index') }}">Back to the list</a>
     <h1 style="color: #fff3cd">{{ prestation.nomPrestation }}</h1>
+    <h3> <i class="fa fa-css3"></i>   Nom du prestataire  :  {{ prestation.idPrestataire }} </h3>
     <h3> <i class="fa fa-css3"></i>   Description  :  {{ prestation.descriptionPrestation }} </h3>
     <h3> <i class="fa fa-css3"></i>   Date  : {% if prestation.datePrestation %}{{ prestation.datePrestation|date('Y-m-d') }}{% endif %} </h3>
     <h3> <i class="fa fa-css3"></i>   Etat  : {% if prestation.etatPrestation == 0 %}  non traitée  {% endif %} {% if prestation.etatPrestation == 1 %}   traitée  {% endif %} </h3>
@@ -27,4 +27,7 @@
 
                 <input type="submit" value="Supprimer" class="btn btn-blue btn-form" style="background-color: #fff3cd; color: black">
             {{ form_end(delete_form) }}
-    {% endblock %}
+    <br> <br>
+    <a style="color: Black" href="{{ path('prestations_index') }}">Retour à mes prestations</a>
+
+{% endblock %}

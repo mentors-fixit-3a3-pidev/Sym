@@ -1,6 +1,8 @@
 {% extends 'page.html.twig' %}
 
 {% block body %}
+    <a style="color: black" href="{{ path('prestations_index') }}"> Retour à mes prestations</a>
+
     <center>
         <div>
     <h1 style="text-align: center; text-decoration: underline">Demande de prestation</h1>
@@ -37,11 +39,9 @@
     {{ form_widget(form.datePrestation, { 'attr':{'style':'background-color:#fff3cd;width: 40%'}    }) }}
 </div>
     <input type="submit" value="Passer ma demande" class="btn btn-blue btn-form" style="background-color: #fff3cd; color: black"/>
-    <ul>
-        <li>
-            <a href="{{ path('prestations_index') }}">Afficher toutes mes prestations</a>
-        </li>
-    </ul>
+
+
+
 
     {{ form_end(form) }}
 

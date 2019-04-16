@@ -19,6 +19,7 @@
                 <ul>
                     <li>{{ prestation.descriptionPrestation }}</li>
                     <li>{{ prestation.idSousCategorie }}</li>
+                    <li>{{ prestation.idPrestataire }}</li>
                     <li>{% if prestation.datePrestation %}{{ prestation.datePrestation|date('Y-m-d') }}{% endif %}</li>
                     <li>{% if prestation.etatPrestation == 0 %}  non traitée  {% endif %} {% if prestation.etatPrestation == 1 %}   traitée  {% endif %}</li>
                     <li><a href="{{ path('prestations_show', { 'idPrestation': prestation.idPrestation }) }}" class=btn>Détails</a></li>
